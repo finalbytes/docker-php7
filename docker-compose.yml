@@ -1,0 +1,37 @@
+version: '2'
+services:
+  nginx:
+    image: finalbytes/nginx:latest
+    ports:
+     - "8080:80"
+    volumes:
+     - ./application:/var/www/html
+    networks:
+     - appnet
+  php:
+    image: finalbytes/php:latest
+    volumes:
+     - ./application:/var/www/html
+    networks:
+     - appnet
+  redis:
+    image: redis:alpine
+    networks:
+     - appnet
+  db:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: homestead
+      MYSQL_USER: homestead
+      MYSQL_PASSWORD: secret
+    volumes:
+     - data:/var/lib/mysql
+    networks:
+     - appnet
+networks:
+  appnet:
+    driver: "bridge"
+volumes:
+  data:
+    driver: "local"

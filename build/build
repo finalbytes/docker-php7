@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+cd $DIR/nginx
+docker build -t finalbytes/nginx:$1 -t finalbytes/nginx:latest .
+docker push finalbytes/nginx:$1
+docker push finalbytes/nginx:latest
+
+cd $DIR/php
+docker build -t finalbytes/php:$1 -t finalbytes/php:latest .
+docker push finalbytes/php:$1
+docker push finalbytes/php:latest
