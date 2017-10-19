@@ -20,6 +20,8 @@ services:
      - appnet
   db:
     image: mariadb:latest
+    ports:
+    -  "33060:3306"
     environment:
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_DATABASE: homestead

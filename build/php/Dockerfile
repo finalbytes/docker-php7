@@ -4,6 +4,7 @@ MAINTAINER Kevin Kerstjens <Final Bytes>
 
 RUN apt-get update \
     && apt-get install -y curl zip unzip git software-properties-common python-software-properties \
+    && apt-get install -y mysql-client \
     && apt-get install -y php7.0-fpm php7.0-cli php7.0-mcrypt php7.0-gd php7.0-mysql \
        php7.0-pgsql php7.0-imap php-memcached php7.0-mbstring php7.0-xml php7.0-curl \
     && php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer \
