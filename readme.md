@@ -21,7 +21,7 @@ At this point, we've created containers and have them up and running. However, w
 ### 2. Create a new Laravel application
 
 ```bash
-# From directory "php-app"
+# From directory "docker-php7"
 # Create a Laravel application
 docker run -it --rm \
     -v $(pwd):/opt \
